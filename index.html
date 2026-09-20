@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ajay Kushwah — Financial Modeling & Valuation</title>
+<meta name="description" content="Ajay Kushwah — Accountant, MBA (GLA), FMVA Candidate. Financial modeling portfolio featuring a full DCF valuation of Asian Paints Limited.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#10233B;
+    --paper:#F6F3EC;
+    --paper-2:#EDE8DB;
+    --green:#1F6F5C;
+    --brass:#A97D3F;
+    --muted:#5B6472;
+    --rule: rgba(16,35,59,0.14);
+    --max: 920px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--brass);color:var(--paper);}
+  h1,h2,h3{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+  .rule{border:none;border-top:1px solid var(--rule);margin:0;}
+
+  /* NAV */
+  nav.top{
+    position:sticky;top:0;z-index:20;
+    background:rgba(246,243,236,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--rule);
+  }
+  nav.top .wrap{
+    display:flex;justify-content:space-between;align-items:center;
+    padding-top:16px;padding-bottom:16px;
+  }
+  .brand{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:500;}
+  .navlinks{display:flex;gap:26px;font-size:0.92rem;}
+  .navlinks a{text-decoration:none;color:var(--muted);border-bottom:1px solid transparent;padding-bottom:2px;transition:color .15s, border-color .15s;}
+  .navlinks a:hover{color:var(--ink);border-color:var(--brass);}
+  @media (max-width:600px){ .navlinks{gap:14px;font-size:0.82rem;} }
+
+  /* HERO */
+  header.hero{padding:76px 0 56px;}
+  .hero-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:end;}
+  @media (max-width:760px){ .hero-grid{grid-template-columns:1fr;} }
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:0.82rem;color:var(--green);margin-bottom:18px;}
+  h1.name{font-size:clamp(2.4rem,5vw,3.6rem);line-height:1.04;}
+  .role{margin-top:16px;font-size:1.15rem;color:var(--muted);max-width:46ch;}
+
+  .statement{
+    background:var(--ink);color:var(--paper);
+    padding:26px 26px 22px;
+    font-family:'IBM Plex Mono',monospace;
+  }
+  .statement .label{font-size:0.72rem;letter-spacing:0.03em;color:#AEB9C6;margin-bottom:14px;}
+  .stat-row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed rgba(246,243,236,0.22);font-size:0.88rem;}
+  .stat-row:last-child{border-bottom:none;}
+  .stat-row .v{color:#E9C88A;}
+
+  /* SECTION SCAFFOLD */
+  section{padding:54px 0;}
+  .section-head{display:flex;align-items:baseline;gap:16px;margin-bottom:30px;}
+  .section-head .no{font-family:'IBM Plex Mono',monospace;color:var(--brass);font-size:0.85rem;}
+  .section-head h2{font-size:1.7rem;}
+
+  /* ABOUT */
+  .about p{max-width:66ch;font-size:1.02rem;color:#2C3A4C;}
+  .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:32px;border-top:1px solid var(--rule);}
+  .fact{padding:18px 0;border-bottom:1px solid var(--rule);}
+  .fact:nth-child(1),.fact:nth-child(2){border-right:1px solid var(--rule);}
+  @media (max-width:640px){
+    .facts{grid-template-columns:1fr;}
+    .fact:nth-child(1),.fact:nth-child(2){border-right:none;}
+  }
+  .fact .num{font-family:'Fraunces',serif;font-size:1.9rem;}
+  .fact .cap{color:var(--muted);font-size:0.88rem;margin-top:4px;padding-right:16px;}
+
+  /* PROJECT */
+  .project-intro p{max-width:70ch;color:#2C3A4C;}
+  .model-outputs{margin-top:30px;border-top:1px solid var(--rule);}
+  .line{
+    display:flex;justify-content:space-between;align-items:baseline;
+    padding:13px 0;border-bottom:1px solid var(--rule);
+    font-family:'IBM Plex Mono',monospace;font-size:0.92rem;
+  }
+  .line .k{color:var(--muted);font-family:'Inter',sans-serif;}
+  .line .val{color:var(--green);font-weight:500;}
+  .line .flag{color:var(--brass);font-size:0.72rem;font-family:'Inter',sans-serif;margin-left:8px;}
+
+  .bars{display:flex;align-items:flex-end;gap:10px;height:120px;margin:34px 0 8px;}
+  .bar{flex:1;background:linear-gradient(180deg,var(--green),#164E42);border-radius:2px 2px 0 0;position:relative;}
+  .bar span{position:absolute;top:-22px;left:0;right:0;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--muted);}
+  .bar-labels{display:flex;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--muted);}
+  .bar-labels div{flex:1;text-align:center;}
+  .chart-cap{font-size:0.78rem;color:var(--muted);margin-top:6px;font-style:italic;}
+
+  .method{margin-top:36px;}
+  .method ol{list-style:none;margin:0;padding:0;counter-reset:step;}
+  .method li{counter-increment:step;padding:16px 0;border-bottom:1px solid var(--rule);display:flex;gap:18px;}
+  .method li::before{content: counter(step, decimal-leading-zero);font-family:'IBM Plex Mono',monospace;color:var(--brass);font-size:0.85rem;padding-top:2px;}
+  .method li:first-child{border-top:1px solid var(--rule);}
+  .method .mtitle{font-weight:600;font-size:0.98rem;}
+  .method .mdesc{color:var(--muted);font-size:0.92rem;margin-top:3px;}
+
+  .project-cta{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;padding:12px 22px;font-size:0.92rem;
+    text-decoration:none;border:1px solid var(--ink);
+  }
+  .btn.primary{background:var(--ink);color:var(--paper);}
+  .btn.primary:hover{background:#1B3455;}
+  .btn.ghost{color:var(--ink);}
+  .btn.ghost:hover{background:var(--paper-2);}
+
+  /* SKILLS */
+  .skill-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;}
+  @media (max-width:700px){ .skill-cols{grid-template-columns:1fr 1fr;} }
+  @media (max-width:480px){ .skill-cols{grid-template-columns:1fr;} }
+  .skill-cols h3{font-size:0.92rem;font-family:'Inter',sans-serif;font-weight:600;margin-bottom:12px;color:var(--green);}
+  .skill-cols ul{list-style:none;margin:0;padding:0;color:#2C3A4C;font-size:0.92rem;}
+  .skill-cols li{padding:6px 0;border-bottom:1px solid var(--rule);}
+  .skill-cols li:last-child{border-bottom:none;}
+
+  /* EXPERIENCE */
+  .exp-item{display:grid;grid-template-columns:140px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid var(--rule);}
+  .exp-item:first-child{border-top:1px solid var(--rule);}
+  @media (max-width:560px){ .exp-item{grid-template-columns:1fr;gap:6px;} }
+  .exp-item .period{font-family:'IBM Plex Mono',monospace;font-size:0.82rem;color:var(--muted);}
+  .exp-item h3{font-size:1.05rem;font-weight:600;font-family:'Inter',sans-serif;}
+  .exp-item .org{color:var(--brass);font-size:0.9rem;margin-top:2px;}
+  .exp-item p{margin-top:8px;color:#2C3A4C;font-size:0.94rem;max-width:60ch;}
+
+  /* FOOTER */
+  footer{padding:56px 0 70px;}
+  .contact-row{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;}
+  footer h2{font-size:1.9rem;max-width:16ch;}
+  .contact-links{display:flex;flex-direction:column;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:0.92rem;}
+  .contact-links a{text-decoration:none;border-bottom:1px solid var(--rule);padding-bottom:1px;}
+  .contact-links a:hover{border-color:var(--brass);}
+  .fineprint{margin-top:50px;font-size:0.78rem;color:var(--muted);}
+
+  .note{
+    background:#FBF0DC;border:1px solid #E4C88E;color:#6B4E1E;
+    font-size:0.82rem;padding:10px 14px;margin:18px 0 0;
+    font-family:'Inter',sans-serif;
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <div class="brand">Ajay Kushwah</div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#project">Project</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Financial Modeling & Valuation</div>
+      <h1 class="name">Ajay Kushwah</h1>
+      <p class="role">Accountant with 6 years of professional experience, MBA candidate at GLA University, and FMVA candidate — building equity research and valuation models grounded in real financial statements.</p>
+    </div>
+    <div class="statement">
+      <div class="label">FEATURED MODEL — ASIAN PAINTS LTD.</div>
+      <div class="stat-row"><span>Model type</span><span class="v">3‑statement + DCF</span></div>
+      <div class="stat-row"><span>Revenue CAGR (proj.)</span><span class="v">[Update]%</span></div>
+      <div class="stat-row"><span>WACC used</span><span class="v">[Update]%</span></div>
+      <div class="stat-row"><span>Intrinsic value / share</span><span class="v">₹[Update]</span></div>
+    </div>
+  </div>
+</header>
+
+<hr class="rule">
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head"><span class="no">01</span><h2>About</h2></div>
+    <div class="about">
+      <p>I work at the intersection of accounting discipline and financial strategy. Six years of hands-on accounting work taught me how the numbers in a filing actually get produced — which is what I now bring into building valuation models rather than treating financial statements as a black box. I'm currently completing an MBA at GLA University and the FMVA (Financial Modeling & Valuation Analyst) program, and I build full company models as I learn, starting with Asian Paints Limited.</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><div class="num">6 yrs</div><div class="cap">Professional accounting experience</div></div>
+      <div class="fact"><div class="num">MBA</div><div class="cap">Candidate, GLA University</div></div>
+      <div class="fact"><div class="num">FMVA</div><div class="cap">Candidate, financial modeling & valuation</div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section id="project">
+  <div class="wrap">
+    <div class="section-head"><span class="no">02</span><h2>Asian Paints Ltd. — Financial Model</h2></div>
+    <div class="project-intro">
+      <p>A ground-up financial model of Asian Paints Limited built to practice institutional-grade modeling: historical statement reconstruction, a driver-based 3-statement projection, and a DCF valuation with sensitivity analysis on WACC and terminal growth.</p>
+    </div>
+
+    <div class="model-outputs">
+      <div class="line"><span class="k">Revenue CAGR (5-yr projection)</span><span class="val">[Update]% <span class="flag">edit before publishing</span></span></div>
+      <div class="line"><span class="k">EBITDA margin (terminal year)</span><span class="val">[Update]%</span></div>
+      <div class="line"><span class="k">WACC</span><span class="val">[Update]%</span></div>
+      <div class="line"><span class="k">Terminal growth rate</span><span class="val">[Update]%</span></div>
+      <div class="line"><span class="k">DCF intrinsic value / share</span><span class="val">₹[Update]</span></div>
+      <div class="line"><span class="k">Implied upside / downside vs. CMP</span><span class="val">[Update]%</span></div>
+    </div>
+
+    <div class="bars">
+      <div class="bar" style="height:34%"><span>[Y1]</span></div>
+      <div class="bar" style="height:46%"><span>[Y2]</span></div>
+      <div class="bar" style="height:58%"><span>[Y3]</span></div>
+      <div class="bar" style="height:74%"><span>[Y4]</span></div>
+      <div class="bar" style="height:100%"><span>[Y5]</span></div>
+    </div>
+    <div class="bar-labels"><div>FY1</div><div>FY2</div><div>FY3</div><div>FY4</div><div>FY5</div></div>
+    <div class="chart-cap">Projected revenue trajectory — replace with your model's actual figures.</div>
+
+    <div class="method">
+      <ol>
+        <li><div><div class="mtitle">Historical reconstruction</div><div class="mdesc">Rebuilt Asian Paints' income statement, balance sheet, and cash flow statement from public filings to establish a clean historical base.</div></div></li>
+        <li><div><div class="mtitle">Driver-based projections</div><div class="mdesc">Forecast revenue, margins, and working capital using operational drivers rather than flat growth assumptions.</div></div></li>
+        <li><div><div class="mtitle">DCF valuation</div><div class="mdesc">Discounted free cash flow to firm using a calculated WACC, with a terminal value from a Gordon Growth exit.</div></div></li>
+        <li><div><div class="mtitle">Sensitivity analysis</div><div class="mdesc">Stress-tested intrinsic value against a WACC / terminal growth grid to show the valuation range, not a single point estimate.</div></div></li>
+      </ol>
+    </div>
+
+    <div class="project-cta">
+      <a class="btn primary" href="#" target="_blank">Download the model (.xlsx)</a>
+      <a class="btn ghost" href="#" target="_blank">View write-up (PDF)</a>
+    </div>
+    <div class="note">Replace both links above with your actual file — upload the Excel model to this same GitHub repo (or Google Drive) and point the buttons at it.</div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head"><span class="no">03</span><h2>Skills</h2></div>
+    <div class="skill-cols">
+      <div>
+        <h3>Modeling & Valuation</h3>
+        <ul>
+          <li>3-statement modeling</li>
+          <li>DCF valuation</li>
+          <li>Comparable company analysis</li>
+          <li>Sensitivity & scenario analysis</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Accounting</h3>
+        <ul>
+          <li>Financial statement preparation</li>
+          <li>Reconciliations & reporting</li>
+          <li>Compliance & audit support</li>
+          <li>[Add your specific tools/ERP]</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Tools</h3>
+        <ul>
+          <li>Excel (advanced)</li>
+          <li>FMVA curriculum modules</li>
+          <li>[Add: Tally / SAP / QuickBooks etc.]</li>
+          <li>PowerPoint / reporting</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head"><span class="no">04</span><h2>Experience</h2></div>
+
+    <div class="exp-item">
+      <div class="period">[Start] — Present</div>
+      <div>
+        <h3>Accountant</h3>
+        <div class="org">[Company name]</div>
+        <p>[Add 1–2 lines on scope: e.g., managed monthly closes, reconciliations, statutory compliance, and reporting for a team of size X.]</p>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="period">[Year] — [Year]</div>
+      <div>
+        <h3>MBA Candidate</h3>
+        <div class="org">GLA University</div>
+        <p>Pursuing an MBA alongside the FMVA program, applying coursework directly to independent equity modeling projects.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="contact-row">
+      <h2>Let's talk numbers.</h2>
+      <div class="contact-links">
+        <a href="mailto:your.email@example.com">your.email@example.com</a>
+        <a href="https://linkedin.com/in/your-profile" target="_blank">linkedin.com/in/your-profile</a>
+        <a href="https://github.com/Ajay-Kushwah-MBA" target="_blank">github.com/Ajay-Kushwah-MBA</a>
+        <a href="#" target="_blank">Download résumé (PDF)</a>
+      </div>
+    </div>
+    <div class="fineprint">Ajay Kushwah — Financial Modeling & Valuation Portfolio.</div>
+  </div>
+</footer>
+
+</body>
+</html>
